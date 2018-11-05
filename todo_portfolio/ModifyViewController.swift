@@ -17,6 +17,12 @@ class ModifyViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.titleLabel.text = TodolistData.shared.title
+        self.contentLabel.text = TodolistData.shared.content
+    }
    
     @IBAction func modifyButton(_ sender: Any) {
         self.performSegue(withIdentifier: "ModifySegue", sender: self)

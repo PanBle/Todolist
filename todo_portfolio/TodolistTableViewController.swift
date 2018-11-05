@@ -38,7 +38,8 @@ class TodolistTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
+        
         // Configure the cell...
 
         return cell
@@ -46,8 +47,7 @@ class TodolistTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        self.performSegue(withIdentifier: "TableSegue", sender: self)
+        self.performSegue(withIdentifier:"TableSegue", sender: self)
     }
 
     /*

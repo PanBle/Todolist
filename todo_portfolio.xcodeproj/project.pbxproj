@@ -11,6 +11,10 @@
 		BE14EC4B218BDE0200DAF85F /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14EC4A218BDE0200DAF85F /* TodoViewController.swift */; };
 		BE14EC4F218BE65000DAF85F /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14EC4E218BE65000DAF85F /* ModifyViewController.swift */; };
 		BE14EC51218FB7C800DAF85F /* TodolistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14EC50218FB7C800DAF85F /* TodolistTableViewController.swift */; };
+		BE14EC532190033A00DAF85F /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14EC522190033A00DAF85F /* SendData.swift */; };
+		BE14EC5521900AB500DAF85F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE14EC5421900AB500DAF85F /* GoogleService-Info.plist */; };
+		BE14EC5621900AB500DAF85F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE14EC5421900AB500DAF85F /* GoogleService-Info.plist */; };
+		BE14EC5721900AB500DAF85F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE14EC5421900AB500DAF85F /* GoogleService-Info.plist */; };
 		BE4466C421870B6C0056B1B6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4466C321870B6B0056B1B6 /* RegisterViewController.swift */; };
 		BE58C6882186D554000047AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58C6872186D554000047AD /* AppDelegate.swift */; };
 		BE58C68A2186D554000047AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58C6892186D554000047AD /* ViewController.swift */; };
@@ -52,6 +56,8 @@
 		BE14EC4A218BDE0200DAF85F /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		BE14EC4E218BE65000DAF85F /* ModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		BE14EC50218FB7C800DAF85F /* TodolistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistTableViewController.swift; sourceTree = "<group>"; };
+		BE14EC522190033A00DAF85F /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
+		BE14EC5421900AB500DAF85F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE4466C321870B6B0056B1B6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE58C6842186D554000047AD /* todo_portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo_portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE58C6872186D554000047AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				BE58C6872186D554000047AD /* AppDelegate.swift */,
+				BE14EC5421900AB500DAF85F /* GoogleService-Info.plist */,
 				BE58C6892186D554000047AD /* ViewController.swift */,
 				BE58C68B2186D554000047AD /* Main.storyboard */,
 				BE58C68E2186D556000047AD /* Assets.xcassets */,
@@ -159,6 +166,7 @@
 				BE14EC4A218BDE0200DAF85F /* TodoViewController.swift */,
 				BE14EC4E218BE65000DAF85F /* ModifyViewController.swift */,
 				BE14EC50218FB7C800DAF85F /* TodolistTableViewController.swift */,
+				BE14EC522190033A00DAF85F /* SendData.swift */,
 			);
 			path = todo_portfolio;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE58C6922186D556000047AD /* LaunchScreen.storyboard in Resources */,
+				BE14EC5521900AB500DAF85F /* GoogleService-Info.plist in Resources */,
 				BE58C68F2186D556000047AD /* Assets.xcassets in Resources */,
 				BE58C68D2186D554000047AD /* Main.storyboard in Resources */,
 			);
@@ -299,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE14EC5621900AB500DAF85F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE14EC5721900AB500DAF85F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,22 +355,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-todo_portfolio/Pods-todo_portfolio-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -418,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE14EC4B218BDE0200DAF85F /* TodoViewController.swift in Sources */,
+				BE14EC532190033A00DAF85F /* SendData.swift in Sources */,
 				BE14EC51218FB7C800DAF85F /* TodolistTableViewController.swift in Sources */,
 				BE4466C421870B6C0056B1B6 /* RegisterViewController.swift in Sources */,
 				BE58C68A2186D554000047AD /* ViewController.swift in Sources */,

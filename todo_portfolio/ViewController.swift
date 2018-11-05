@@ -10,11 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var idField: UITextField!
+    @IBOutlet weak var pwField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBAction func loginbutton(_ sender: Any) {
+    }
+    
+    @IBAction func registerButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+    }
+    
 
 }
 

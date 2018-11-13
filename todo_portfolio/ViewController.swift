@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginbutton(_ sender: Any) {
+        self.performSegue(withIdentifier: "LoginSegue", sender: self)
     }
     
     @IBAction func registerButton(_ sender: Any) {

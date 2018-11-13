@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
 class TodoViewController: UIViewController {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     @IBAction func sendButton(_ sender: Any) {
+        todoT.append(self.titleField.text!)
+        todoC.append(self.contentField.text!)
+        
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func returnButton(_ sender: Any) {

@@ -4,6 +4,7 @@ pod 'SideMenu'
 pod 'Toast-Swift', '~> 4.0.0'
 pod 'lottie-ios'
 pod 'Firebase/Core'
+pod 'Firebase/Database'
 pod 'SwiftyJSON', '~> 4.0'
 pod 'Alamofire', '~> 4.7'
 

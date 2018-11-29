@@ -20,8 +20,8 @@ class ModifyViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.titleLabel.text = TodolistData.shared.title
-        self.contentLabel.text = TodolistData.shared.content
+        self.titleLabel.text = TodolistData.shared.title?[TodolistData.shared.index!.row]
+        self.contentLabel.text = TodolistData.shared.content?[TodolistData.shared.index!.row]
     }
    
     @IBAction func modifyButton(_ sender: Any) {

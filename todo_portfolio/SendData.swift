@@ -11,6 +11,9 @@ import Foundation
 class TodolistData {
     static let shared : TodolistData = TodolistData()
     
-    var title : String?
-    var content : String?
+    var title : [String]?
+    var content : [String]?
+    var index : IndexPath?
 }
+
+

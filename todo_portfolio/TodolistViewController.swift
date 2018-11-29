@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
-
-var todoC : [String] = []
-var todoT : [String] = []
 class TodolistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //TableView
+    var todoC : [String] = []
+    var todoT : [String] = []
+    let cellIdentifer : String = "cell"
+    
+    var ref:DatabaseReference!
+    
     @IBOutlet weak var todoTableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.todoTableview.dataSource = self
-        self.todoTableview.delegate = self
+        self.todoTableview.reloadData()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.todoTableview.dataSource = self
+        self.todoTableview.delegate = self
+        ref = Database.database().reference()
+        
+        ref.observeSingleEvent(of: .value, with: {(snapshot) in
+            let values = snapshot.value as? [String : AnyObject]
+            self.todoC = values? ["Content"] as! [String]
+            self.todoT = values? ["Title"] as! [String]
+        })
         
         self.todoTableview.reloadData()
     }
@@ -33,25 +44,29 @@ class TodolistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifer, for: indexPath)
         
-        cell.textLabel?.text = todoC[indexPath.row]
+        cell.textLabel?.text = self.todoT[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
+        TodolistData.shared.content = self.todoC
+        TodolistData.shared.title = self.todoT
+        TodolistData.shared.index = indexPath
         self.performSegue(withIdentifier: "TableSegue", sender: self)
     }
     // -----------------end------------------------
 
     @IBAction func writeButton(_ sender: Any) {
+        TodolistData.shared.content = self.todoC
+        TodolistData.shared.title = self.todoT
+        
         self.performSegue(withIdentifier: "TodoSegue", sender: self)
     }
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -59,6 +74,5 @@ class TodolistViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

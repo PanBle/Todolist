@@ -14,15 +14,33 @@ class TodoViewController: UIViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentField: UITextField!
     
+    var saveContent:[String] = []
+    var saveTitle:[String] = []
+    var ref:DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        saveTitle = TodolistData.shared.title!
+        saveContent = TodolistData.shared.content!
     }
     @IBAction func sendButton(_ sender: Any) {
-        todoT.append(self.titleField.text!)
-        todoC.append(self.contentField.text!)
+        guard titleField.text != nil else {return}
+        guard contentField.text != nil else {return}
         
+        saveTitle.append(titleField.text!)
+        saveContent.append(contentField.text!)
+        
+        self.ref = Database.database().reference()
+        
+        let titleref = self.ref.child("Title")
+        let contentref = self.ref.child("Content")
+        
+        titleref.setValue(saveTitle)
+        contentref.setValue(saveContent)
+        
+        TodolistData.shared.content = saveContent
+        TodolistData.shared.title = saveTitle
         
         self.dismiss(animated: true, completion: nil)
     }

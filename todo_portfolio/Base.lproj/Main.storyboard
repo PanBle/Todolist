@@ -225,7 +225,7 @@
         <!--Side Menu Navigation Controller-->
         <scene sceneID="7si-jj-fPQ">
             <objects>
-                <navigationController navigationBarHidden="YES" id="ed3-Qu-2Lg" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="ed3-Qu-2Lg" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wR1-3K-M5m">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

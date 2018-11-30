@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -25,6 +26,22 @@ class RegisterViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func registerButton(_ sender: Any) {
+        guard idField.text != nil else {return}
+        guard pwField.text != nil else {return}
+        guard repwField.text != nil else {return}
+        guard emField.text != nil else {return}
+        guard phField.text != nil else {return}
+        
+        Auth.auth().createUser(withEmail: idField.text!, password: pwField.text!, completion: {(user, error) in
+            if user != nil {
+                print("Login success")
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                print("\(String(describing: error))")
+            }
+        })
+        
     }
     
 
